@@ -60,7 +60,7 @@ export default function Navbar() {
           </Button>
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu className="px-10 mt-4 text-gray-600 dark:text-darkGray-600">
+      <NavbarMenu className="px-10 pt-4 text-gray-600 dark:text-darkGray-600">
         {navbarMenuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link className="w-full" href="#">

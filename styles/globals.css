@@ -21,3 +21,7 @@
   font-family: InterSemiBold;
   src: url(../public/fonts/Inter-SemiBold.ttf);
 }
+
+h1 {
+  font-family: interBold;
+}
