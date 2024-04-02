@@ -25,7 +25,7 @@ export default function AboutMeBox() {
         </div>
         <div className="md:col-span-1"></div>
         <div className="mt-16 md:mt-0 md:col-span-3">
-          <h2 className="text-2xl">Curios about me? Here you have it:</h2>
+          <h2 className="text-2xl">Curious about me? Here you have it:</h2>
           <p className="text-gray-600 dark:text-darkGray-600">
             {`I'm a passionate, self-proclaimed designer who specializes in full
             stack development (React.js & Node.js). I am very enthusiastic about
