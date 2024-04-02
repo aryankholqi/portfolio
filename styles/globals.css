@@ -29,3 +29,8 @@ h1 {
 h2 {
   font-family: interSemiBold;
 }
+
+header {
+  max-width: none !important;
+  padding: 0 !important;
+}

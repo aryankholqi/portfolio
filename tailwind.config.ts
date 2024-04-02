@@ -9,16 +9,20 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xs: "370px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       fontFamily: {
         interBold: ["InterBold"],
         interSemiBold: ["InterSemiBold"],
         interRegular: ["InterRegular"],
         interMedium: ["InterMedium"],
-      },
-      container: {
-        center: true,
-        padding: "10rem",
       },
       colors: {
         lightGray: {
@@ -50,6 +54,18 @@ const config: Config = {
         },
         emerald: {
           DEFAULT: "#10b981",
+        },
+      },
+      container: {
+        center: true,
+        padding: {
+          DEAFAULT: "2rem",
+          xs: "1rem",
+          sm: "2rem",
+          md: "2rem",
+          lg: "3rem",
+          xl: "3.5rem",
+          "2xl": "3rem",
         },
       },
     },
