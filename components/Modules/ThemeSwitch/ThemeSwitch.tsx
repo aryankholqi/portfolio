@@ -15,7 +15,7 @@ export default function ThemeSwitch() {
       onClick={() => switchThemeHandler(theme, setTheme)}
       className="bg-transparent"
     >
-      <Image alt="" src={theme === "light" ? lightIcon : moonIcon} />
+      <Image alt="" src={theme !== "dark" ? lightIcon : moonIcon} />
     </Button>
   );
 }

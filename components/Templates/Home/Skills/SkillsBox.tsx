@@ -7,7 +7,7 @@ import SkillLogo from "./SkillLogo";
 export default function SkillsBox() {
   return (
     <div className="container py-16">
-      <div className="flex flex-col justify-center items-center gap-y-2 mb-12">
+      <div className="flex flex-col items-center gap-y-2 mb-12">
         <Chip
           variant="flat"
           className="bg-gray-200 dark:bg-darkGray-200 text-gray-600 dark:text-darkGray-600"

@@ -75,7 +75,7 @@ export default function Navbar() {
             onClick={() => switchThemeHandler(theme, setTheme)}
           >
             <p>Switch Theme</p>
-            <Image src={theme === "light" ? lightIcon : moonIcon} alt="" />
+            <Image src={theme !== "dark" ? lightIcon : moonIcon} alt="" />
           </NavbarMenuItem>
           <Button className="bg-gray-900 dark:bg-darkGray-900 text-gray-50 dark:text-darkGray-50 rounded-2xl mt-4">
             Download CV
