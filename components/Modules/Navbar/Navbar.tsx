@@ -32,23 +32,25 @@ export default function Navbar() {
           </NavbarBrand>
         </NavbarContent>
         <NavbarContent
-          className="hidden sm:flex gap-2 text-gray-600 dark:text-darkGray-600"
+          className="hidden sm:flex sm:gap-0 md:gap-2 text-gray-600 dark:text-darkGray-600"
           justify="center"
         >
-          <NavbarItem>
-            <Link href="#">About</Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link href="#" aria-current="page">
-              Work
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link href="#">Testimonails</Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link href="#">Contact</Link>
-          </NavbarItem>
+          <div className="flex items-center gap-x-4">
+            <NavbarItem>
+              <Link href="#">About</Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link href="#" aria-current="page">
+                Work
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link href="#">Testimonails</Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link href="#">Contact</Link>
+            </NavbarItem>
+          </div>
           <NavbarItem>
             <Divider className="w-[20px] block rotate-90 bg-gray-100 dark:bg-darkGray-50" />
           </NavbarItem>
