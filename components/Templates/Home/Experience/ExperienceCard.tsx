@@ -7,7 +7,7 @@ export default function ExperienceCard() {
   return (
     <Card className="md:w-[70%] mx-auto shadow-md dark:bg-darkGray-100 rounded-md pb-4">
       <CardHeader className="flex flex-col md:flex-row items-start md:items-center gap-y-1 md:gap-y-0 justify-between px-6">
-        <Image src={saminray} alt="" className="w-[50%] md:w-[20%]" />
+        <Image src={saminray} alt="" width={80}/>
         <p className="font-interSemiBold text-small md:text-medium order-3 md:order-2">
           Frontend Web Developer
         </p>

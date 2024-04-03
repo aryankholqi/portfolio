@@ -80,7 +80,7 @@ export default function HeaderBox() {
             className="relative z-10 w-full h-full border-[10px] border-white dark:border-black"
             priority
           />
-          <div className="absolute w-[120%] sm:w-full h-[95%] top-12 -right-6 bg-lightGray-200 dark:bg-darkGray-200"></div>
+          <div className="absolute w-[121%] sm:w-full h-[93%] md:h-[91%] xl:h-[95%] 2xl:h-[97%] top-12 -right-6 bg-lightGray-200 dark:bg-darkGray-200"></div>
         </div>
       </div>
     </div>
