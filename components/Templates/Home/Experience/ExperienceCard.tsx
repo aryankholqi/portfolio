@@ -16,7 +16,7 @@ export default function ExperienceCard() {
         </p>
       </CardHeader>
       <CardBody>
-        <ul className="list-disc text-lightGray-600 dark:text-darkGray-600 font-interMedium flex flex-col gap-y-2 text-sm w-[90%] md:w-1/2 mx-auto md:pl-6 lg:pl-16 xl:pl-28 2xl:pl-40">
+        <ul className="list-disc text-lightGray-600 dark:text-darkGray-600 font-interMedium flex flex-col gap-y-2 text-sm w-[90%] md:w-1/2 mx-auto pl-2.5 sm:pl-0 md:pl-6 lg:pl-16 xl:pl-28 2xl:pl-40">
           <li>Worked as Frontend developer in reactjs,nextjs</li>
           <li>
             Worked in many panel-dashboard projects, PWA application, etc.

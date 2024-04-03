@@ -62,7 +62,7 @@ export default function Navbar() {
               className="bg-lightGray-900 dark:bg-darkGray-900 text-lightGray-50 dark:text-darkGray-50 rounded-2xl"
               onClick={() =>
                 (window.location.href =
-                  "https://www.mediafire.com/file/erc611sqjx7n5tl/aryankholqi-resume.pdf/file")
+                  "https://download854.mediafire.com/ho3x2sm45begMtisfykEY7WkovB5cXsIaGo3VERCxWIRZEKTE4xVeBwonWFaJjtedEVEgaGA99r6sJx_cucgZ4nEs9rb_Zm6u3A2jOgmnFk4GzZYo3CXlZ5IJK4_ivqExBrsAeYGnJhzCz8rLNuCKi10iSxM7jwItNqn6DqjwA/erc611sqjx7n5tl/aryankholqi-resume.pdf")
               }
             >
               Download CV
@@ -89,7 +89,7 @@ export default function Navbar() {
             className="bg-lightGray-900 dark:bg-darkGray-900 text-lightGray-50 dark:text-darkGray-50 rounded-2xl mt-4"
             onClick={() =>
               (window.location.href =
-                "https://www.mediafire.com/file/erc611sqjx7n5tl/aryankholqi-resume.pdf/file")
+                "https://download854.mediafire.com/ho3x2sm45begMtisfykEY7WkovB5cXsIaGo3VERCxWIRZEKTE4xVeBwonWFaJjtedEVEgaGA99r6sJx_cucgZ4nEs9rb_Zm6u3A2jOgmnFk4GzZYo3CXlZ5IJK4_ivqExBrsAeYGnJhzCz8rLNuCKi10iSxM7jwItNqn6DqjwA/erc611sqjx7n5tl/aryankholqi-resume.pdf")
             }
           >
             Download CV
