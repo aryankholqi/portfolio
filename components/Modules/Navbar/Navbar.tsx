@@ -23,8 +23,8 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="container">
-      <NextNavbar>
+    <NextNavbar>
+      <div className="container flex items-center">
         <NavbarContent className="flex-row-reverse sm:flex-row">
           <NavbarMenuToggle className="sm:hidden" />
           <NavbarBrand>
@@ -39,7 +39,7 @@ export default function Navbar() {
             <Link href="#">About</Link>
           </NavbarItem>
           <NavbarItem>
-            <Link href="#" aria-current="page" >
+            <Link href="#" aria-current="page">
               Work
             </Link>
           </NavbarItem>
@@ -81,7 +81,7 @@ export default function Navbar() {
             Download CV
           </Button>
         </NavbarMenu>
-      </NextNavbar>
-    </div>
+      </div>
+    </NextNavbar>
   );
 }
