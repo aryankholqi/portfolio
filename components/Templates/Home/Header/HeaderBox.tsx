@@ -25,7 +25,7 @@ export default function HeaderBox() {
               Iran, Babolsar
             </p>
           </div>
-          <div className="flex items-center gap-x-4 mt-2 ms-2">
+          <div className="flex items-center gap-x-4 mt-2 ms-3">
             <div className="w-2 h-2 rounded-full bg-emerald"></div>
             <p className="text-gray-600 dark:text-darkGray-600">
               Available for new projects

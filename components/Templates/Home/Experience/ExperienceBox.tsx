@@ -13,7 +13,7 @@ export default function ExperienceBox() {
           >
             Experience
           </Chip>
-          <p className="text-gray-600 dark:text-darkGray-600">
+          <p className="text-gray-600 dark:text-darkGray-600 text-center">
             Here is a quick summary of my most recent experiences:
           </p>
         </div>

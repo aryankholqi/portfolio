@@ -14,7 +14,7 @@ export default function SkillsBox() {
         >
           Skills
         </Chip>
-        <p className="text-gray-600 dark:text-darkGray-600">
+        <p className="text-gray-600 dark:text-darkGray-600 text-center">
           The skills, tools and technologies I am really good at:
         </p>
       </div>

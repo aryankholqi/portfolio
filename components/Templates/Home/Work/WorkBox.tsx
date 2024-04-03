@@ -13,7 +13,7 @@ export default function WorkBox({ data }: { data: works[] }) {
         >
           Work
         </Chip>
-        <p className="text-gray-600 dark:text-darkGray-600">
+        <p className="text-gray-600 dark:text-darkGray-600 text-center">
           Some of the noteworthy projects I have built:
         </p>
       </div>
