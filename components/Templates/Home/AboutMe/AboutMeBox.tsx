@@ -5,7 +5,7 @@ import myProfile from "@/public/images/myProfile2.jpeg";
 
 export default function AboutMeBox() {
   return (
-    <div className="bg-gray-50 dark:bg-darkGray-50 pt-24 mt-16">
+    <div className="bg-gray-50 dark:bg-darkGray-50 py-24 mt-16">
       <div className="container">
         <div className="flex justify-center">
           <Chip
@@ -20,9 +20,9 @@ export default function AboutMeBox() {
             <Image
               alt=""
               src={myProfile}
-              className="z-10 w-[80%] sm:w-[60%] md:w-full mx-auto relative"
+              className="z-10 w-[80%] sm:w-[60%] md:w-full mx-auto relative border-[10px] border-gray-50 dark:border-darkGray-50"
             />
-            <div className="absolute -translate-y-[95%] translate-x-[5%] sm:translate-x-[22%] md:-translate-x-[5%] w-[90%] sm:w-[70%] md:w-full h-[70dvh] sm:h-[90dvh] md:h-[35%] lg:h-[60%] xl:h-[100%] bg-gray-200 dark:bg-darkGray-200"></div>
+            <div className="absolute -translate-y-[95%] translate-x-[5%] sm:translate-x-[22%] md:-translate-x-[5%] w-[90%] sm:w-[70%] md:w-full h-[45dvh] sm:h-[55dvh] md:h-[35%] lg:h-[60%] xl:h-[100%] bg-gray-200 dark:bg-darkGray-200"></div>
           </div>
           <div className="md:col-span-1"></div>
           <div className="mt-16 md:mt-0 md:col-span-3">

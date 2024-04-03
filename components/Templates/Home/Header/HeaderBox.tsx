@@ -41,7 +41,7 @@ export default function HeaderBox() {
           <Image
             src={myProfile}
             alt=""
-            className="relative z-10 w-full h-full"
+            className="relative z-10 w-full h-full border-[10px] border-white dark:border-black"
           />
           <div className="absolute w-[120%] sm:w-full h-[95%] top-12 -right-6 bg-gray-200 dark:bg-darkGray-200"></div>
         </div>

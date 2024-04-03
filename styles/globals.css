@@ -34,3 +34,53 @@ header {
   max-width: none !important;
   padding: 0 !important;
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-slide {
+  width: 80%;
+  background-color: transparent;
+}
+
+.swiper-slide:nth-child(2n) {
+  width: 60%;
+}
+
+.swiper-slide:nth-child(3n) {
+  width: 40%;
+}
+
+.swiper-pagination {
+  bottom: 0% !important;
+}
+
+.swiper-wrapper {
+  margin-bottom: 40px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .swiper-pagination-bullet {
+    background-color: #4b5563 !important;
+  }
+}
