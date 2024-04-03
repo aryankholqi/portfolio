@@ -13,7 +13,7 @@ export default function SkillLogo({ title, icon }: skills) {
           objectFit: "contain",
         }}
       />
-      <p className="text-gray-600 dark:text-darkGray-600 text-sm mt-2">
+      <p className="text-lightGray-600 dark:text-darkGray-600 text-sm mt-2">
         {title}
       </p>
     </>

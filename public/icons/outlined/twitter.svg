@@ -1,4 +1,12 @@
 <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  @media (prefers-color-scheme: light) {
+    path { stroke: #4b5563; } 
+  }
+  @media (prefers-color-scheme: dark) {
+    path { stroke: #d1d5db; } 
+  }
+  </style>
 <g filter="url(#filter0_d_165_113)">
 <path d="M32.3334 5.33369C32.3334 5.33369 31.4001 8.13369 29.6667 9.86702C31.8001 23.2004 17.1334 32.9337 5.66675 25.3337C8.60008 25.467 11.5334 24.5337 13.6667 22.667C7.00008 20.667 3.66675 12.8004 7.00008 6.66702C9.93341 10.1337 14.4667 12.1337 19.0001 12.0004C17.8001 6.40036 24.3334 3.20036 28.3334 6.93369C29.8001 6.93369 32.3334 5.33369 32.3334 5.33369Z" stroke="#4B5563" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>

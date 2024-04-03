@@ -12,12 +12,14 @@ export default function TestimonialsItem({
       <CardBody className="items-center">
         <Avatar size="lg" />
         <div>
-          <p className="text-gray-600 dark:text-darkGray-600 px-8 mt-6 line-clamp-4 text-sm">
+          <p className="text-lightGray-600 dark:text-darkGray-600 px-8 mt-6 line-clamp-4 text-sm">
             {description}
           </p>
           <div className="text-center mt-6">
             <p className="font-interSemiBold text-lg">{author}</p>
-            <p className="text-gray-600 dark:text-darkGray-600 text-xs">{position}</p>
+            <p className="text-lightGray-600 dark:text-darkGray-600 text-xs">
+              {position}
+            </p>
           </div>
         </div>
       </CardBody>

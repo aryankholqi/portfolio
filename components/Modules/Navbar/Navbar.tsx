@@ -28,11 +28,11 @@ export default function Navbar() {
         <NavbarContent className="flex-row-reverse sm:flex-row">
           <NavbarMenuToggle className="sm:hidden" />
           <NavbarBrand>
-            <p className="font-interBold text-gray-900 dark:text-darkGray-900 text-[30px]">{`<MA/>`}</p>
+            <p className="font-interBold text-lightGray-900 dark:text-darkGray-900 text-[30px]">{`<MA/>`}</p>
           </NavbarBrand>
         </NavbarContent>
         <NavbarContent
-          className="hidden sm:flex sm:gap-0 md:gap-2 text-gray-600 dark:text-darkGray-600"
+          className="hidden sm:flex sm:gap-0 md:gap-2 text-lightGray-600 dark:text-darkGray-600"
           justify="center"
         >
           <div className="flex items-center gap-x-4">
@@ -52,18 +52,24 @@ export default function Navbar() {
             </NavbarItem>
           </div>
           <NavbarItem>
-            <Divider className="w-[20px] block rotate-90 bg-gray-100 dark:bg-darkGray-50" />
+            <Divider className="w-[20px] block rotate-90 bg-lightGray-100 dark:bg-darkGray-50" />
           </NavbarItem>
           <NavbarItem>
             <ThemeSwitch />
           </NavbarItem>
           <NavbarItem>
-            <Button className="bg-gray-900 dark:bg-darkGray-900 text-gray-50 dark:text-darkGray-50 rounded-2xl">
+            <Button
+              className="bg-lightGray-900 dark:bg-darkGray-900 text-lightGray-50 dark:text-darkGray-50 rounded-2xl"
+              onClick={() =>
+                (window.location.href =
+                  "https://www.mediafire.com/file/erc611sqjx7n5tl/aryankholqi-resume.pdf/file")
+              }
+            >
               Download CV
             </Button>
           </NavbarItem>
         </NavbarContent>
-        <NavbarMenu className="px-10 pt-4 text-gray-600 dark:text-darkGray-600">
+        <NavbarMenu className="px-10 pt-4 text-lightGray-600 dark:text-darkGray-600">
           {navbarMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link className="w-full" href="#">
@@ -79,7 +85,13 @@ export default function Navbar() {
             <p>Switch Theme</p>
             <Image src={theme !== "dark" ? lightIcon : moonIcon} alt="" />
           </NavbarMenuItem>
-          <Button className="bg-gray-900 dark:bg-darkGray-900 text-gray-50 dark:text-darkGray-50 rounded-2xl mt-4">
+          <Button
+            className="bg-lightGray-900 dark:bg-darkGray-900 text-lightGray-50 dark:text-darkGray-50 rounded-2xl mt-4"
+            onClick={() =>
+              (window.location.href =
+                "https://www.mediafire.com/file/erc611sqjx7n5tl/aryankholqi-resume.pdf/file")
+            }
+          >
             Download CV
           </Button>
         </NavbarMenu>

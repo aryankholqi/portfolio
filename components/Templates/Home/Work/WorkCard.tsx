@@ -14,12 +14,12 @@ export default function WorkCard({
   return (
     <Card className="shadow-md">
       <CardBody className="grid lg:grid-cols-2 p-0 gap-x-8">
-        <div className="border-[30px] border-gray-50 dark:border-darkGray-50">
+        <div className="border-[30px] border-lightGray-50 dark:border-darkGray-50">
           <Image src={image} alt="" className="rounded-lg h-full" />
         </div>
         <div className="py-8 pr-8 pl-8 lg:pl-0">
           <p className="font-interSemiBold text-xl">{title}</p>
-          <p className="text-gray-600 dark:text-darkGray-600 line-clamp-3 my-8">
+          <p className="text-lightGray-600 dark:text-darkGray-600 line-clamp-3 my-8">
             {description}
           </p>
           <div className="flex flex-wrap gap-2 mb-6">
@@ -27,7 +27,7 @@ export default function WorkCard({
               <Chip
                 key={index}
                 variant="flat"
-                className="bg-gray-200 dark:bg-darkGray-200 text-gray-600 dark:text-darkGray-600"
+                className="bg-lightGray-200 dark:bg-darkGray-200 text-lightGray-600 dark:text-darkGray-600"
               >
                 {skill}
               </Chip>
