@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Navbar from "@/components/Modules/Navbar/Navbar";
+import Footer from "@/components/Modules/Footer/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <div className="mt-4">
             <Navbar />
             <Component {...pageProps} />
+            <Footer />
           </div>
         </NextThemesProvider>
       </NextUIProvider>

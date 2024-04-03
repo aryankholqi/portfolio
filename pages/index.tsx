@@ -16,7 +16,7 @@ export default function Home() {
       <SkillsBox data={getSkills()} />
       <ExperienceBox />
       <WorkBox data={getWorks()} />
-      <TestimonialsBox data={getTestimonials()}/>
+      <TestimonialsBox data={getTestimonials()} />
     </>
   );
 }

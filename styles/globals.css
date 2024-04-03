@@ -84,3 +84,9 @@ header {
     background-color: #4b5563 !important;
   }
 }
+
+pre {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+}
