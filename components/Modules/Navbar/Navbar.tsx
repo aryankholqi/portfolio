@@ -39,7 +39,7 @@ export default function Navbar() {
             <Link href="#">About</Link>
           </NavbarItem>
           <NavbarItem>
-            <Link href="#" aria-current="page">
+            <Link href="#" aria-current="page" >
               Work
             </Link>
           </NavbarItem>
