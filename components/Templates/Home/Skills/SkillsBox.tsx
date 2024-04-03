@@ -1,12 +1,12 @@
 import PaginationSlider from "@/components/Modules/Slider/PaginationSlider";
-import { getSkills } from "@/mock/getSkills";
 import { Chip } from "@nextui-org/react";
 import React from "react";
 import SkillLogo from "./SkillLogo";
+import { skills } from "@/interfaces/skills.interface";
 
-export default function SkillsBox() {
+export default function SkillsBox({ data }: { data: skills[] }) {
   return (
-    <div className="container py-16">
+    <div className="container py-24">
       <div className="flex flex-col items-center gap-y-2 mb-12">
         <Chip
           variant="flat"
@@ -18,7 +18,7 @@ export default function SkillsBox() {
           The skills, tools and technologies I am really good at:
         </p>
       </div>
-      <PaginationSlider data={getSkills()} Content={SkillLogo} />
+      <PaginationSlider data={data} Content={SkillLogo} />
     </div>
   );
 }

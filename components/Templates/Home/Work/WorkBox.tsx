@@ -5,7 +5,7 @@ import { works } from "@/interfaces/works.interface";
 
 export default function WorkBox({ data }: { data: works[] }) {
   return (
-    <div className="container py-16">
+    <div className="container py-24">
       <div className="flex flex-col items-center gap-y-2 mb-12">
         <Chip
           variant="flat"
