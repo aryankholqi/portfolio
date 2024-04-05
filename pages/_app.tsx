@@ -4,6 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Navbar from "@/components/Modules/Navbar/Navbar";
 import Footer from "@/components/Modules/Footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
             <Footer />
           </div>
+          <Toaster position="top-center" />
         </NextThemesProvider>
       </NextUIProvider>
     </>

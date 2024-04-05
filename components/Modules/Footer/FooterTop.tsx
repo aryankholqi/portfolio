@@ -7,6 +7,7 @@ import twitterIcon from "@/public/icons/outlined/twitter.svg";
 import linkedinIcon from "@/public/icons/solid/linkedin.svg";
 import stackoverflowIcon from "@/public/icons/solid/stackoverflow.svg";
 import Image from "next/image";
+import NewsLetterForm from "@/components/Templates/Home/NewsLetter/NewsLetterForm";
 
 export default function FooterTop() {
   return (
@@ -36,6 +37,7 @@ export default function FooterTop() {
         >
           <p className="font-interSemiBold text-lg">+989114482673</p>
         </Snippet>
+        <NewsLetterForm />
         <p className="text-xs mt-6">You may also find me on these platforms!</p>
         <div className="flex items-center gap-x-4">
           <Image

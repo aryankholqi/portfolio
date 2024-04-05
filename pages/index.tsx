@@ -4,6 +4,7 @@ import HeaderBox from "@/components/Templates/Home/Header/HeaderBox";
 import SkillsBox from "@/components/Templates/Home/Skills/SkillsBox";
 import TestimonialsBox from "@/components/Templates/Home/Testimonials/TestimonialsBox";
 import WorkBox from "@/components/Templates/Home/Work/WorkBox";
+import connectToDB from "@/configs/db";
 import { experiences } from "@/interfaces/experiences.interface";
 import { skills } from "@/interfaces/skills.interface";
 import { getTestimonials } from "@/mock/getTestimonials";
@@ -29,6 +30,7 @@ export default function Home({
 }
 
 export async function getStaticProps() {
+  await connectToDB();
   const getSkills = await fetch(
     "https://660fd6760640280f219b9363.mockapi.io/api/skills"
   );
