@@ -2,7 +2,7 @@ import React from "react";
 import locationIcon from "@/public/icons/outlined/location.svg";
 import githubIcon from "@/public/icons/outlined/github.svg";
 import twitterIcon from "@/public/icons/outlined/twitter.svg";
-import linkedinIcon from "@/public/icons/solid/linkedin.svg"
+import linkedinIcon from "@/public/icons/solid/linkedin.svg";
 import stackoverflowIcon from "@/public/icons/solid/stackoverflow.svg";
 import Image from "next/image";
 import myProfile from "@/public/images/myProfile.webp";
@@ -13,7 +13,7 @@ export default function HeaderBox() {
       <div className="mt-20 flex flex-col-reverse sm:grid sm:grid-cols-5 md:grid-cols-6 gap-x-12">
         <div className="sm:col-span-3 md:col-span-4">
           <h1 className="text-4xl md:text-5xl font-interSemiBold md:font-interBold">{`Hi, I'm Aryan👋🏻`}</h1>
-          <p className="text-lightGray-600 dark:text-darkGray-600 mb-10 mt-2">
+          <p className="text-lightGray-600 dark:text-darkGray-600 mb-10 mt-2 text-pretty">
             {`I'm a full stack developer (React.js & Node.js) with a focus on
           creating (and occasionally designing) exceptional digital experiences
           that are fast, accessible, visually appealing, and responsive. Even

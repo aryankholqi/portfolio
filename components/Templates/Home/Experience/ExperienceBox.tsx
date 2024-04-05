@@ -1,8 +1,9 @@
 import { Chip } from "@nextui-org/react";
 import React from "react";
 import ExperienceCard from "./ExperienceCard";
+import { experiences } from "@/interfaces/experiences.interface";
 
-export default function ExperienceBox() {
+export default function ExperienceBox({ data }: { data: experiences[] }) {
   return (
     <div className="bg-lightGray-50 dark:bg-darkGray-50 py-24" id="experience">
       <div className="container">
@@ -17,7 +18,11 @@ export default function ExperienceBox() {
             Here is a quick summary of my most recent experiences:
           </p>
         </div>
-        <ExperienceCard />
+        <div className="flex flex-col gap-y-6">
+          {data.map((experience, index) => (
+            <ExperienceCard key={index} {...experience} />
+          ))}
+        </div>
       </div>
     </div>
   );

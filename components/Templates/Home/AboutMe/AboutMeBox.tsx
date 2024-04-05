@@ -25,7 +25,7 @@ export default function AboutMeBox() {
             <div className="absolute -translate-y-[95%] sm:-translate-y-[93%] md:-translate-y-[96%] lg:-translate-y-[97%]  translate-x-[3%] sm:translate-x-[21%] md:-translate-x-[5%] w-[95%] sm:w-[71%] md:w-[92%] h-[90%] sm:h-[92%] md:h-[32%] lg:h-[57%] xl:h-[95%] bg-lightGray-200 dark:bg-darkGray-200"></div>
           </div>
           <div className="md:col-span-1"></div>
-          <div className="mt-16 md:mt-0 md:col-span-3">
+          <div className="mt-16 md:mt-0 md:col-span-3 text-pretty">
             <h2 className="text-2xl">Curious about me? Here you have it:</h2>
             <p className="text-lightGray-600 dark:text-darkGray-600">
               {`I'm a passionate, self-proclaimed designer who specializes in full

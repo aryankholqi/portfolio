@@ -6,8 +6,10 @@ export default function SkillLogo({ title, icon }: skills) {
   return (
     <>
       <Image
-        alt=""
+        alt={title}
         src={icon}
+        width={20}
+        height={20}
         style={{
           aspectRatio: "2",
           objectFit: "contain",
