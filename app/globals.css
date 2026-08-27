@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Nocturne tokens */
+@theme {
+  --color-bg: #161826;
+  --color-surface: #1c1e2c;
+  --color-section: #1b1e3f;
+  --color-text: #e9e9ed;
+  --color-accent: #9184d9;
+  --color-accent-200: #c9c2ee;
+  --color-accent-300: #b3a9e6;
+  --color-divider: rgba(233, 233, 237, 0.12);
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4 { font-weight: 500; }
+
+::selection { background: color-mix(in oklch, var(--color-accent) 35%, transparent); }
+
+a { color: var(--color-text); text-decoration: none; }
+a:hover { color: var(--color-accent-200); }
+
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
