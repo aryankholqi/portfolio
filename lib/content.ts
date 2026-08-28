@@ -29,7 +29,7 @@ export const projects: Project[] = [
       'A platform for building online business cards. Users fully customise their own card — photo, phone numbers, social links — and share it with anyone as a public link.',
     short: 'Online business-card platform',
     tags: ['Next.js App Router', 'TypeScript', 'React Query', 'GSAP'],
-    image: '/work/lynx.jpg',
+    image: '/work/Lynx.webp',
     featured: true,
   },
   {
@@ -40,7 +40,7 @@ export const projects: Project[] = [
       'Mock-exam and analytics platform for students preparing for Iran’s master’s and PhD entrance exams.',
     short: 'Exam platform',
     tags: ['Next.js App Router', 'TypeScript', 'MathJax'],
-    image: '/work/bank-test.jpg',
+    image: '/work/Banktest.webp',
     featured: false,
   },
   {
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     summary: 'Online store for gold and jewellery. Product catalogue, category browsing, and detail pages.',
     short: 'Gold & jewellery store',
     tags: ['Next.js App Router', 'TypeScript', 'Shadcn'],
-    image: '/work/tahla.jpg',
+    image: '/work/Tahla.webp',
     featured: false,
   },
   {
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     summary: 'Showcase site for the Rabeck team — all of their services and completed work in one place.',
     short: 'Agency showcase',
     tags: ['Next.js App Router', 'TypeScript', 'Three.js'],
-    image: '/work/rabeck.jpg',
+    image: '/work/Rabeck.webp',
     featured: false,
   },
 ];
@@ -68,7 +68,7 @@ export const projects: Project[] = [
 export const stack = [
   { title: 'Core', items: ['Next.js (App Router)', 'React 19', 'TypeScript', 'JavaScript'] },
   { title: 'Styling', items: ['Tailwind', 'CSS Modules', 'Design tokens', 'Radix primitives'] },
-  { title: 'Data', items: ['React Query', 'tRPC', 'Zod', 'Prisma'] },
+  { title: 'Data', items: ['React Query', 'tRPC', 'Zod', 'MongoDB'] },
   { title: 'Tooling', items: ['Playwright', 'Vitest', 'Turborepo', 'Vercel'] },
 ];
 
