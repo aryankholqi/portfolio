@@ -26,7 +26,7 @@ function Card({ p, large, delay }: { p: Project; large?: boolean; delay: number 
           large ? 'h-[200px] md:h-[340px]' : 'h-[180px] md:h-[196px]'
         }`}
       >
-        <Image src={p.image} alt={`${p.name} — screenshot`} fill sizes="(max-width: 768px) 100vw, 45vw" className="object-cover object-top" />
+        <Image src={p.image} alt={`${p.name} — screenshot`} fill sizes="(max-width: 768px) 100vw, 45vw" className="object-cover object-top" loading='eager'/>
       </div>
       <div className="flex items-baseline gap-4">
         <h3 className={`m-0 ${large ? 'text-[21px] md:text-[26px]' : 'text-[19px]'}`}>{p.name}</h3>
