@@ -15,7 +15,8 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+/* Smooth scrolling is driven by Lenis (components/SmoothScroll.tsx); the
+   native `scroll-behavior: smooth` would fight its programmatic scrolls. */
 
 body {
   background: var(--color-bg);

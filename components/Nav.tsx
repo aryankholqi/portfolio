@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 
 const items = [
@@ -88,7 +87,7 @@ export default function Nav() {
           {items.map((i) => {
             const on = active === i.href;
             return (
-              <Link
+              <a
                 key={i.href}
                 href={i.href}
                 onClick={() => setActive(i.href)}
@@ -108,7 +107,7 @@ export default function Nav() {
                   />
                 )}
                 {i.label}
-              </Link>
+              </a>
             );
           })}
         </nav>
