@@ -24,7 +24,7 @@ export default function About() {
       </Reveal>
       <Reveal delay={0.08}>
         <div className="relative h-[260px] overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-surface)] md:h-[420px]">
-          <Image src="/portrait.jpg" alt="Aryan Kholghi" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
+          <Image src="/Portrait.webp" alt="Aryan Kholghi" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
         </div>
       </Reveal>
     </section>

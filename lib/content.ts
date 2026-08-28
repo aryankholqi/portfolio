@@ -18,7 +18,7 @@ export const projects: Project[] = [
       'Showcase site for a cosmetics and personal-care brand. Product catalogue, category browsing, and detail pages built for a growing range.',
     short: 'Cosmetics brand showcase',
     tags: ['Next.js App Router', 'TypeScript', 'Three.js', 'React Query', 'GSAP'],
-    image: '/work/abidarya.jpg',
+    image: '/work/Abidarya.webp',
     featured: true,
   },
   {
