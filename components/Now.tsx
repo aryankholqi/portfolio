@@ -6,7 +6,7 @@ export default function Now() {
   return (
     <section id="now" className="grid gap-6 px-5 pt-20 md:grid-cols-[4fr_7fr] md:gap-20 md:px-24 md:pt-22">
       <Reveal>
-        <SectionHeading index="05">Now</SectionHeading>
+        <SectionHeading index="06">Now</SectionHeading>
       </Reveal>
       <ul className="m-0 flex list-none flex-col gap-4 p-0">
         {now.map((item, i) => (

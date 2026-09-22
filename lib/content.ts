@@ -111,6 +111,34 @@ export const experience = [
   },
 ];
 
+export const education = [
+  {
+    period: "2020 — 2024",
+    degree: "B.Sc in Computer Science · University of Mazandaran",
+    grade: "GPA 17.32/20",
+    details: [
+      "Ranked 1st among 76 students in the department for 5 consecutive semesters (2nd – 6th semester); admitted 2nd among 76 in the 2020 cohort",
+      "Coursework: Artificial Intelligence, Data Mining, Design and Analysis of Algorithms, Data Structures and Algorithms, Probability, Linear Algebra, Linear Optimization",
+      "Teaching Assistant for Linear Optimization (Sep 2022 — Jan 2023), leading weekly problem-solving sessions for 30+ students",
+    ],
+    project: {
+      title: "Final project: Filtered Approximate Nearest Neighbor Search over Vector Embeddings",
+      bullets: [
+        "Built an end-to-end benchmark pipeline on 200K+ text chunks from English Wikipedia, generating dense embeddings (BGE) and preserving real categorical metadata for filtered-search evaluation",
+        "Implemented and benchmarked four ANN search strategies (brute-force, post-filtering, in-graph filtering, and an ACORN-inspired over-provisioned HNSW) using FAISS, evaluated across 1,000+ queries",
+        "Discovered that standard HNSW-based filtering degrades sharply below 5% selectivity, and that semantically-clustered filters underperform random filters by up to 3x at comparable selectivity — showing selectivity alone does not predict filtered-search quality",
+        "Showed that graph over-provisioning improves recall by up to 30 percentage points but plateaus on clustered filters, motivating predicate-aware graph construction as the next research direction",
+      ],
+    },
+  },
+  {
+    period: "2017 — 2020",
+    degree: "High School Diploma in Mathematics and Physics · Exemplary High School",
+    grade: "GPA 18.40/20",
+    details: [],
+  },
+];
+
 export const now = [
   "Rebuilding Rabeck’s website on the App Router",
   "Working on a set of new features for Bank Test",

@@ -4,6 +4,7 @@ import Work from '@/components/Work';
 import About from '@/components/About';
 import Stack from '@/components/Stack';
 import Experience from '@/components/Experience';
+import Education from '@/components/Education';
 import Now from '@/components/Now';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -17,6 +18,7 @@ export default function Page() {
       <About />
       <Stack />
       <Experience />
+      <Education />
       <Now />
       <Contact />
       <Footer />
