@@ -10,7 +10,7 @@ export default function Stack() {
           <SectionHeading index="03">Stack</SectionHeading>
         </div>
       </Reveal>
-      <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 md:gap-x-8 md:gap-y-12">
         {stack.map((group, i) => (
           <Reveal key={group.title} delay={i * 0.06}>
             <h5 className="m-0 mb-3 text-[13px] text-[var(--color-accent)]">{group.title}</h5>

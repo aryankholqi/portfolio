@@ -75,15 +75,29 @@ export const projects: Project[] = [
 
 export const stack = [
   {
-    title: "Core",
-    items: ["Next.js (App Router)", "React 19", "TypeScript", "JavaScript"],
+    title: "Programming",
+    items: ["JavaScript", "Python", "C++", "MATLAB", "HTML", "CSS", "LaTeX"],
   },
   {
-    title: "Styling",
-    items: ["Tailwind", "CSS Modules", "Design tokens", "Radix primitives"],
+    title: "Frameworks & Libraries",
+    items: ["React.js", "Next.js", "CrewAI", "Pydantic", "Redux.js", "Zustand", "TanStack Query"],
   },
-  { title: "Data", items: ["React Query", "tRPC", "Zod", "MongoDB"] },
-  { title: "Tooling", items: ["Playwright", "Vitest", "Turborepo", "Vercel"] },
+  {
+    title: "UI & Styling",
+    items: ["Tailwind CSS", "Material-UI", "Bootstrap", "Shadcn", "Framer Motion", "GSAP", "Three.js"],
+  },
+  {
+    title: "APIs & Data",
+    items: ["REST APIs", "GraphQL", "Axios", "WebSocket", "MongoDB"],
+  },
+  {
+    title: "Tools & Practices",
+    items: ["Git", "npm", "Figma", "Progressive Web Apps (PWAs)", "MathJax"],
+  },
+  {
+    title: "Languages",
+    items: ["English — IELTS Academic 7", "German — A1", "Persian — Native"],
+  },
 ];
 
 export const experience = [
