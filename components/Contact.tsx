@@ -1,24 +1,31 @@
 'use client';
 
 import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Reveal from './Reveal';
 import { links } from '@/lib/content';
 
 export default function Contact() {
-  const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error' | 'limited'>('idle');
+  const [sender, setSender] = useState({ name: '', email: '' });
+  const reduced = useReducedMotion();
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setState('sending');
-    const data = Object.fromEntries(new FormData(e.currentTarget));
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      setState(res.ok ? 'sent' : 'error');
-      if (res.ok) e.currentTarget.reset();
+      setState(res.ok ? 'sent' : res.status === 429 ? 'limited' : 'error');
+      if (res.ok) {
+        setSender({ name: data.name.trim().split(/\s+/)[0], email: data.email.trim() });
+        form.reset();
+      }
     } catch {
       setState('error');
     }
@@ -47,23 +54,79 @@ export default function Contact() {
           Send a short brief — what it is, when it needs to be live. I reply within a day.
         </p>
 
-        <form onSubmit={onSubmit} className="flex max-w-[46ch] flex-col gap-3">
-          <input name="name" required placeholder="Your name" className={field} />
-          <input name="email" type="email" required placeholder="Email" className={field} />
-          <textarea name="message" required rows={4} placeholder="What are you building?" className={field} />
+        <AnimatePresence mode="wait" initial={false}>
+        {state === 'sent' ? (
+          <motion.div
+            key="sent"
+            role="status"
+            initial={reduced ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduced ? undefined : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-[46ch] rounded-[var(--radius-lg)] border border-[color-mix(in_oklch,var(--color-accent)_40%,transparent)] bg-[color-mix(in_oklch,var(--color-accent)_8%,transparent)] p-6"
+          >
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[color-mix(in_oklch,var(--color-accent)_22%,transparent)] text-[var(--color-accent-200)]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <p className="m-0 mb-2 text-lg font-medium text-[var(--color-text)]">
+              Thanks{sender.name ? `, ${sender.name}` : ''} — your brief is in.
+            </p>
+            <p className="m-0 mb-5 text-sm leading-relaxed text-[rgba(233,233,237,0.72)]">
+              I&apos;ll read it and reply to{' '}
+              <span className="text-[var(--color-accent-200)]">{sender.email || 'your email'}</span> within a day.
+              If it&apos;s not in your inbox by then, check spam.
+            </p>
+            <button
+              type="button"
+              onClick={() => setState('idle')}
+              className="text-sm text-[rgba(233,233,237,0.6)] underline underline-offset-4 hover:text-[var(--color-accent-200)]"
+            >
+              Send another message
+            </button>
+          </motion.div>
+        ) : (
+        <motion.form
+          key="form"
+          onSubmit={onSubmit}
+          initial={reduced ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={reduced ? undefined : { opacity: 0, y: -8 }}
+          transition={{ duration: 0.3 }}
+          className="flex max-w-[46ch] flex-col gap-3"
+        >
+          {/* Honeypot: hidden from people and screen readers; bots that fill it are dropped server-side. */}
+          <input
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute -left-[9999px] h-px w-px opacity-0"
+          />
+          <input name="name" required maxLength={100} placeholder="Your name" className={field} />
+          <input name="email" type="email" required maxLength={200} placeholder="Email" className={field} />
+          <textarea name="message" required maxLength={5000} rows={4} placeholder="What are you building?" className={field} />
           <button
             type="submit"
             disabled={state === 'sending'}
             className="rounded-[var(--radius-md)] border border-[var(--color-accent-300)] px-5 py-3 text-sm text-[var(--color-accent-200)] transition-colors hover:bg-[color-mix(in_oklch,var(--color-accent)_16%,transparent)] disabled:opacity-45"
           >
-            {state === 'sending' ? 'Sending…' : state === 'sent' ? 'Sent — thanks' : 'Send brief'}
+            {state === 'sending' ? 'Sending…' : 'Send brief'}
           </button>
           {state === 'error' && (
             <p className="m-0 text-[13px] text-[rgba(233,233,237,0.6)]">
               Something went wrong. Email me directly at {links.email}.
             </p>
           )}
-        </form>
+          {state === 'limited' && (
+            <p className="m-0 text-[13px] text-[rgba(233,233,237,0.6)]">
+              Too many messages in a short time. Try again in a few minutes or email me at {links.email}.
+            </p>
+          )}
+        </motion.form>
+        )}
+        </AnimatePresence>
       </Reveal>
 
       <Reveal delay={0.08}>
