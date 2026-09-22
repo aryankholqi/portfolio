@@ -22,27 +22,35 @@ export default function Nav() {
   const reduced = useReducedMotion();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
     const sections = items
       .map((i) => document.querySelector(i.href))
       .filter((el): el is Element => Boolean(el));
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) setActive(`#${visible.target.id}`);
-      },
-      { threshold: [0.2, 0.5], rootMargin: '-20% 0px -60% 0px' },
-    );
+    // Derive the active link from scroll position on every scroll, so it also
+    // resets when scrolling back up past the first section (e.g. to the hero).
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
 
-    sections.forEach((s) => io.observe(s));
-    return () => io.disconnect();
+      const line = window.innerHeight * 0.4;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      let current = items[0].href;
+      if (atBottom && sections.length) {
+        current = `#${sections[sections.length - 1].id}`;
+      } else {
+        for (const s of sections) {
+          if (s.getBoundingClientRect().top <= line) current = `#${s.id}`;
+        }
+      }
+      setActive(current);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   return (
