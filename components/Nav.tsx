@@ -2,13 +2,16 @@
 
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import type { UI } from '@/lib/content';
+import { dirOf, locales, pathOf, type Locale } from '@/lib/i18n';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const items = [
-  { href: '#work', label: 'Work' },
-  { href: '#about', label: 'About' },
-  { href: '#now', label: 'Now' },
-  { href: '#contact', label: 'Contact' },
-];
+  { href: '#work', key: 'work' },
+  { href: '#about', key: 'about' },
+  { href: '#now', key: 'now' },
+  { href: '#contact', key: 'contact' },
+] as const;
 
 /**
  * Glass navbar: a translucent floating bar that samples the page behind it
@@ -16,10 +19,11 @@ const items = [
  * the bottom and two specular highlights. It condenses slightly once scrolled.
  * The active/hovered item is a shared pill that slides between links.
  */
-export default function Nav() {
-  const [active, setActive] = useState('#work');
+export default function Nav({ ui, locale }: { ui: UI; locale: Locale }) {
+  const [active, setActive] = useState<string>('#work');
   const [scrolled, setScrolled] = useState(false);
   const reduced = useReducedMotion();
+  const dir = dirOf(locale);
 
   useEffect(() => {
     const sections = items
@@ -33,7 +37,7 @@ export default function Nav() {
 
       const line = window.innerHeight * 0.4;
       const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-      let current = items[0].href;
+      let current: string = items[0].href;
       if (atBottom && sections.length) {
         current = `#${sections[sections.length - 1].id}`;
       } else {
@@ -56,7 +60,7 @@ export default function Nav() {
   return (
     <div className="sticky top-0 z-50 px-4 pt-3 md:px-24 md:pt-5">
       <header
-        className={`relative flex items-center gap-4 overflow-hidden rounded-full pl-4 pr-2.5 transition-[padding,background-color] duration-300 md:gap-8 md:pl-6 md:pr-3.5 ${
+        className={`relative flex items-center gap-4 overflow-hidden rounded-full ps-4 pe-2.5 transition-[padding,background-color] duration-300 md:gap-8 md:ps-6 md:pe-3.5 ${
           scrolled ? 'py-2' : 'py-2.5 md:py-3'
         }`}
         style={{
@@ -89,9 +93,9 @@ export default function Nav() {
           style={{ background: 'linear-gradient(90deg, transparent, rgba(233,233,237,0.5), transparent)' }}
         />
 
-        <span className="relative text-[15px] tracking-[-0.02em]">Aryan Kholghi</span>
+        <span className="relative text-[15px] tracking-[-0.02em]">{ui.name}</span>
 
-        <nav className="relative ml-auto hidden items-center gap-1 md:flex">
+        <nav className="relative ms-auto hidden items-center gap-1 md:flex">
           {items.map((i) => {
             const on = active === i.href;
             return (
@@ -114,22 +118,36 @@ export default function Nav() {
                     }}
                   />
                 )}
-                {i.label}
+                {ui.nav[i.key]}
               </a>
             );
           })}
         </nav>
 
+        {/* Each locale has its own root layout, so switching is a full page load. */}
+        <Select value={locale} onValueChange={(v) => window.location.assign(pathOf(v as Locale))} dir={dir}>
+          <SelectTrigger size="sm" aria-label={ui.nav.language} className="relative ms-auto md:ms-0">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent align="end">
+            {locales.map((l) => (
+              <SelectItem key={l} value={l} lang={l}>
+                {ui.nav.languages[l]}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
         <span
-          className="relative ml-auto flex items-center gap-2 rounded-full py-1.5 pl-3 pr-4 text-xs text-[rgba(233,233,237,0.72)] md:ml-0"
+          className="relative flex items-center gap-2 rounded-full py-1.5 ps-3 pe-4 text-xs text-[rgba(233,233,237,0.72)]"
           style={{
             background: 'rgba(22,24,38,0.28)',
             boxShadow: 'inset 0 1px 0 rgba(233,233,237,0.14)',
           }}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)] shadow-[0_0_10px_var(--color-accent)]" />
-          <span className="hidden sm:inline">Available for projects</span>
-          <span className="sm:hidden">Available</span>
+          <span className="hidden sm:inline">{ui.nav.available}</span>
+          <span className="sm:hidden">{ui.nav.availableShort}</span>
         </span>
       </header>
     </div>

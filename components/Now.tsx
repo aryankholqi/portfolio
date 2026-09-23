@@ -1,12 +1,12 @@
 import Reveal from './Reveal';
 import { SectionHeading } from './Section';
-import { now } from '@/lib/content';
+import type { Content, UI } from '@/lib/content';
 
-export default function Now() {
+export default function Now({ ui, now }: { ui: UI; now: Content['now'] }) {
   return (
     <section id="now" className="grid gap-6 px-5 pt-20 md:grid-cols-[4fr_7fr] md:gap-20 md:px-24 md:pt-22">
       <Reveal>
-        <SectionHeading index="06">Now</SectionHeading>
+        <SectionHeading index="06">{ui.nowHeading}</SectionHeading>
       </Reveal>
       <ul className="m-0 flex list-none flex-col gap-4 p-0">
         {now.map((item, i) => (

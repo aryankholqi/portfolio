@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Reveal from './Reveal';
-import { links } from '@/lib/content';
+import type { Content, UI } from '@/lib/content';
 
-export default function Contact() {
+export default function Contact({ ui, links }: { ui: UI; links: Content['links'] }) {
+  const t = ui.contact;
   const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error' | 'limited'>('idle');
   const [sender, setSender] = useState({ name: '', email: '' });
   const reduced = useReducedMotion();
@@ -31,8 +32,10 @@ export default function Contact() {
     }
   }
 
+  // Fields take their direction from what's typed (dir="auto"/"ltr"), which is LTR while empty;
+  // in RTL, right-align the empty state so the Persian placeholder sits on the reading side.
   const field =
-    'w-full rounded-[var(--radius-md)] border border-[var(--color-divider)] bg-[rgba(0,0,0,0.15)] px-3.5 py-3 text-sm text-[var(--color-text)] outline-none placeholder:text-[rgba(233,233,237,0.35)] focus:border-[var(--color-accent)]';
+    'w-full rounded-[var(--radius-md)] border border-[var(--color-divider)] bg-[rgba(0,0,0,0.15)] px-3.5 py-3 text-sm text-[var(--color-text)] outline-none placeholder:text-[rgba(233,233,237,0.35)] focus:border-[var(--color-accent)] rtl:placeholder-shown:text-right';
 
   return (
     <section
@@ -45,13 +48,13 @@ export default function Contact() {
     >
       <Reveal>
         <p className="m-0 mb-4 text-[11px] uppercase tracking-[0.14em] text-[var(--color-accent-300)] md:text-xs">
-          06 — Contact
+          07 — {t.heading}
         </p>
         <h2 className="m-0 mb-4 max-w-[22ch] text-[28px] leading-[1.1] tracking-[-0.025em] md:text-[46px]">
-          Have a frontend problem that needs shipping?
+          {t.title}
         </h2>
         <p className="m-0 mb-7 max-w-[46ch] text-[15px] text-[rgba(233,233,237,0.72)] md:text-base">
-          Send a short brief — what it is, when it needs to be live. I reply within a day.
+          {t.lead}
         </p>
 
         <AnimatePresence mode="wait" initial={false}>
@@ -71,19 +74,18 @@ export default function Contact() {
               </svg>
             </div>
             <p className="m-0 mb-2 text-lg font-medium text-[var(--color-text)]">
-              Thanks{sender.name ? `, ${sender.name}` : ''} — your brief is in.
+              {sender.name ? t.thanksNamed.replace('{name}', sender.name) : t.thanks}
             </p>
             <p className="m-0 mb-5 text-sm leading-relaxed text-[rgba(233,233,237,0.72)]">
-              I&apos;ll read it and reply to{' '}
-              <span className="text-[var(--color-accent-200)]">{sender.email || 'your email'}</span> within a day.
-              If it&apos;s not in your inbox by then, check spam.
+              {t.replyBefore}{' '}
+              <bdi className="text-[var(--color-accent-200)]">{sender.email || t.yourEmail}</bdi> {t.replyAfter}
             </p>
             <button
               type="button"
               onClick={() => setState('idle')}
               className="text-sm text-[rgba(233,233,237,0.6)] underline underline-offset-4 hover:text-[var(--color-accent-200)]"
             >
-              Send another message
+              {t.again}
             </button>
           </motion.div>
         ) : (
@@ -102,26 +104,26 @@ export default function Contact() {
             tabIndex={-1}
             autoComplete="off"
             aria-hidden="true"
-            className="absolute -left-[9999px] h-px w-px opacity-0"
+            className="absolute -start-[9999px] h-px w-px opacity-0"
           />
-          <input name="name" required maxLength={100} placeholder="Your name" className={field} />
-          <input name="email" type="email" required maxLength={200} placeholder="Email" className={field} />
-          <textarea name="message" required maxLength={5000} rows={4} placeholder="What are you building?" className={field} />
+          <input name="name" required maxLength={100} placeholder={t.name} dir="auto" className={field} />
+          <input name="email" type="email" required maxLength={200} placeholder={t.email} dir="ltr" className={field} />
+          <textarea name="message" required maxLength={5000} rows={4} placeholder={t.message} dir="auto" className={field} />
           <button
             type="submit"
             disabled={state === 'sending'}
             className="rounded-[var(--radius-md)] border border-[var(--color-accent-300)] px-5 py-3 text-sm text-[var(--color-accent-200)] transition-colors hover:bg-[color-mix(in_oklch,var(--color-accent)_16%,transparent)] disabled:opacity-45"
           >
-            {state === 'sending' ? 'Sending…' : 'Send brief'}
+            {state === 'sending' ? t.sending : t.send}
           </button>
           {state === 'error' && (
             <p className="m-0 text-[13px] text-[rgba(233,233,237,0.6)]">
-              Something went wrong. Email me directly at {links.email}.
+              {t.error} <bdi>{links.email}</bdi>
             </p>
           )}
           {state === 'limited' && (
             <p className="m-0 text-[13px] text-[rgba(233,233,237,0.6)]">
-              Too many messages in a short time. Try again in a few minutes or email me at {links.email}.
+              {t.limited} <bdi>{links.email}</bdi>
             </p>
           )}
         </motion.form>
@@ -132,14 +134,14 @@ export default function Contact() {
       <Reveal delay={0.08}>
         <ul className="m-0 flex list-none flex-col gap-3 p-0 text-sm">
           {[
-            ['GitHub', links.github],
-            ['LinkedIn', links.linkedin],
-            ['Résumé (PDF)', links.resume],
-            ['Email', `mailto:${links.email}`],
+            [t.links.github, links.github],
+            [t.links.linkedin, links.linkedin],
+            [t.links.resume, links.resume],
+            [t.links.email, `mailto:${links.email}`],
           ].map(([label, href]) => (
             <li key={label}>
               <a href={href} target="_blank" rel="noopener noreferrer" className="text-[rgba(233,233,237,0.8)]">
-                {label} ↗
+                {label} <span className="inline-block rtl:-scale-x-100">↗</span>
               </a>
             </li>
           ))}

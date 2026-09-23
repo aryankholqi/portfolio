@@ -1,13 +1,13 @@
 import Reveal from './Reveal';
 import { SectionHeading } from './Section';
-import { experience } from '@/lib/content';
+import type { Content, UI } from '@/lib/content';
 
-export default function Experience() {
+export default function Experience({ ui, experience }: { ui: UI; experience: Content['experience'] }) {
   return (
     <section className="px-5 pt-20 md:px-24 md:pt-22">
       <Reveal>
         <div className="mb-6">
-          <SectionHeading index="04">Experience</SectionHeading>
+          <SectionHeading index="04">{ui.experienceHeading}</SectionHeading>
         </div>
       </Reveal>
       <div className="flex flex-col">
@@ -17,13 +17,13 @@ export default function Experience() {
               <span className="text-[13px] text-[rgba(233,233,237,0.45)]">{job.period}</span>
               <div>
                 <div className="mb-3 text-[17px] md:text-[18px]">{job.role}</div>
-                <ul className="m-0 flex list-disc flex-col gap-2 pl-4 text-[13.5px] leading-[1.65] text-[rgba(233,233,237,0.6)]">
+                <ul className="m-0 flex list-disc flex-col gap-2 ps-4 text-[13.5px] leading-[1.65] text-[rgba(233,233,237,0.6)]">
                   {job.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
               </div>
-              <span className="text-[13px] text-[rgba(233,233,237,0.45)] md:text-right">{job.mode}</span>
+              <span className="text-[13px] text-[rgba(233,233,237,0.45)] md:text-end">{job.mode}</span>
             </div>
           </Reveal>
         ))}

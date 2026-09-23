@@ -15,6 +15,28 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Persian: Peyda first (Latin words such as "Next.js" still render in it);
+   Inter stays as the fallback. */
+html[dir="rtl"] {
+  --font-sans: var(--font-peyda), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Letter-spacing pulls apart the joined letterforms of Persian script, and the
+   display line-heights tuned for Latin clip its taller ascenders and dots.
+   Unlayered, so these win over Tailwind's tracking/leading utilities. */
+[dir="rtl"] body,
+[dir="rtl"] body * {
+  letter-spacing: 0;
+}
+[dir="rtl"] :is(h1, h2) {
+  line-height: 1.4;
+}
+
+/* Dropdown open (components/ui/select.tsx) */
+@keyframes select-in {
+  from { opacity: 0; transform: translateY(-4px) scale(0.97); }
+}
+
 /* Smooth scrolling is driven by Lenis (components/SmoothScroll.tsx); the
    native `scroll-behavior: smooth` would fight its programmatic scrolls. */
 

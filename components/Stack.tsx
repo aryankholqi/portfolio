@@ -1,13 +1,13 @@
 import Reveal from './Reveal';
 import { SectionHeading } from './Section';
-import { stack } from '@/lib/content';
+import type { Content, UI } from '@/lib/content';
 
-export default function Stack() {
+export default function Stack({ ui, stack }: { ui: UI; stack: Content['stack'] }) {
   return (
     <section className="px-5 pt-20 md:px-24 md:pt-22">
       <Reveal>
         <div className="mb-8">
-          <SectionHeading index="03">Stack</SectionHeading>
+          <SectionHeading index="03">{ui.stackHeading}</SectionHeading>
         </div>
       </Reveal>
       <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 md:gap-x-8 md:gap-y-12">

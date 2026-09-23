@@ -186,3 +186,77 @@ export const links = {
   linkedin: "https://linkedin.com/in/aryan-kholghi",
   resume: "https://coral-odette-80.tiiny.site",
 };
+
+/** Interface copy: nav, headings, buttons, form states. */
+export const ui = {
+  meta: {
+    title: 'Aryan Kholghi — Frontend developer',
+    description:
+      'Independent frontend work: product UI, design-system implementation, and performance on React and Next.js codebases.',
+    ogDescription: 'Frontend developer building fast, accessible interfaces in Next.js.',
+  },
+  name: 'Aryan Kholghi',
+  nav: {
+    work: 'Work',
+    about: 'About',
+    now: 'Now',
+    contact: 'Contact',
+    available: 'Available for projects',
+    availableShort: 'Available',
+    language: 'Language',
+    languages: { en: 'English', fa: 'Farsi' },
+  },
+  hero: {
+    eyebrow: 'Frontend developer',
+    title: 'I build fast, accessible interfaces in Next.js.',
+    lead: 'Independent frontend work: product UI, design-system implementation, and performance on React and Next.js codebases. Currently taking on contract projects.',
+    cta: 'See selected work',
+    facts: [
+      ['Based', 'Remote · UTC+3:30'],
+      ['Focus', 'Next.js, TypeScript, React'],
+      ['Since', '2023 — 4 shipped products'],
+      ['Next opening', 'September 2026'],
+    ],
+  },
+  work: {
+    heading: 'Selected work',
+    count: '{n} projects · 2023—2026',
+    visit: 'Visit',
+    source: 'Source',
+    screenshot: 'screenshot',
+    newTab: '(opens in a new tab)',
+    codeFor: 'code for',
+  },
+  about: {
+    heading: 'About',
+    lead: 'I work with small product teams that need frontend depth without a full-time hire.',
+    body: [
+      'Most of my work starts where a design hands off and ends where the code ships: turning Figma into components that hold up, replacing accumulated CSS with a token system, and fixing the pages that got slow.',
+      'I write TypeScript by default, test the parts that break, and care more about the interface being quick and legible than about which framework it was built with. Available for two- to twelve-week engagements.',
+    ],
+  },
+  stackHeading: 'Stack',
+  experienceHeading: 'Experience',
+  educationHeading: 'Education',
+  nowHeading: 'Now',
+  contact: {
+    heading: 'Contact',
+    title: 'Have a frontend problem that needs shipping?',
+    lead: 'Send a short brief — what it is, when it needs to be live. I reply within a day.',
+    name: 'Your name',
+    email: 'Email',
+    message: 'What are you building?',
+    send: 'Send brief',
+    sending: 'Sending…',
+    thanks: 'Thanks — your brief is in.',
+    thanksNamed: 'Thanks, {name} — your brief is in.',
+    replyBefore: 'I’ll read it and reply to',
+    replyAfter: 'within a day. If it’s not in your inbox by then, check spam.',
+    yourEmail: 'your email',
+    again: 'Send another message',
+    error: 'Something went wrong. Email me directly at',
+    limited: 'Too many messages in a short time. Try again in a few minutes or email me at',
+    links: { github: 'GitHub', linkedin: 'LinkedIn', resume: 'Résumé (PDF)', email: 'Email' },
+  },
+  footer: { credit: 'Aryan Kholghi — Frontend developer', built: 'Built with Next.js' },
+};

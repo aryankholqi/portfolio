@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Reveal from './Reveal';
 import { SectionHeading } from './Section';
-import { projects, type Project } from '@/lib/content';
+import type { Project, UI } from '@/lib/content';
 
 function Tags({ tags }: { tags: string[] }) {
   return (
@@ -20,7 +20,7 @@ function Tags({ tags }: { tags: string[] }) {
 
 function ArrowUpRight({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={`rtl:-scale-x-100 ${className ?? ''}`}>
       <path d="M7 17 17 7M8 7h9v9" />
     </svg>
   );
@@ -30,7 +30,7 @@ const hostOf = (url: string) => new URL(url).host.replace(/^www\./, '');
 
 const EASE = 'ease-[cubic-bezier(0.22,1,0.36,1)]';
 
-function Card({ p, large, delay }: { p: Project; large?: boolean; delay: number }) {
+function Card({ p, ui, large, delay }: { p: Project; ui: UI; large?: boolean; delay: number }) {
   const linked = Boolean(p.url);
 
   return (
@@ -44,7 +44,7 @@ function Card({ p, large, delay }: { p: Project; large?: boolean; delay: number 
       >
         <Image
           src={p.image}
-          alt={`${p.name} — screenshot`}
+          alt={`${p.name} — ${ui.work.screenshot}`}
           fill
           sizes="(max-width: 768px) 100vw, 45vw"
           className={`object-cover object-top transition-transform duration-700 ${EASE} ${linked ? 'motion-safe:group-hover:scale-[1.03]' : ''}`}
@@ -58,7 +58,7 @@ function Card({ p, large, delay }: { p: Project; large?: boolean; delay: number 
             <span
               className={`inline-flex items-center gap-1.5 rounded-full border border-[rgba(233,233,237,0.18)] bg-[rgba(22,24,38,0.55)] px-3.5 py-1.5 text-[13px] text-[var(--color-text)] backdrop-blur-md transition-transform duration-500 motion-safe:translate-y-2 motion-safe:group-hover:translate-y-0 ${EASE}`}
             >
-              Visit {hostOf(p.url!)}
+              {ui.work.visit} <bdi>{hostOf(p.url!)}</bdi>
               <ArrowUpRight className="size-3.5" />
             </span>
           </div>
@@ -75,15 +75,15 @@ function Card({ p, large, delay }: { p: Project; large?: boolean; delay: number 
             >
               {p.name}
               <ArrowUpRight
-                className={`size-[0.7em] self-center text-[rgba(233,233,237,0.45)] transition-[transform,color] duration-300 group-hover:text-[var(--color-accent-200)] motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5 ${EASE}`}
+                className={`size-[0.7em] self-center text-[rgba(233,233,237,0.45)] transition-[transform,color] duration-300 group-hover:text-[var(--color-accent-200)] motion-safe:group-hover:translate-x-0.5 rtl:motion-safe:group-hover:-translate-x-0.5 motion-safe:group-hover:-translate-y-0.5 ${EASE}`}
               />
-              <span className="sr-only">(opens in a new tab)</span>
+              <span className="sr-only">{ui.work.newTab}</span>
             </a>
           ) : (
             p.name
           )}
         </h3>
-        <div className="ml-auto flex items-baseline gap-3 text-xs text-[rgba(233,233,237,0.4)]">
+        <div className="ms-auto flex items-baseline gap-3 text-xs text-[rgba(233,233,237,0.4)]">
           {p.repo && (
             <a
               href={p.repo}
@@ -91,9 +91,9 @@ function Card({ p, large, delay }: { p: Project; large?: boolean; delay: number 
               rel="noopener noreferrer"
               className="relative z-10 -my-1 inline-flex items-center gap-1 rounded-full px-2 py-1 text-[rgba(233,233,237,0.6)] transition-colors duration-300 hover:bg-[rgba(233,233,237,0.06)] hover:text-[var(--color-accent-200)]"
             >
-              Source
+              {ui.work.source}
               <ArrowUpRight className="size-3" />
-              <span className="sr-only">code for {p.name} (opens in a new tab)</span>
+              <span className="sr-only">{ui.work.codeFor} {p.name} {ui.work.newTab}</span>
             </a>
           )}
           <span>{p.year}</span>
@@ -105,7 +105,7 @@ function Card({ p, large, delay }: { p: Project; large?: boolean; delay: number 
   );
 }
 
-export default function Work() {
+export default function Work({ ui, projects }: { ui: UI; projects: Project[] }) {
   const featured = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
 
@@ -113,22 +113,22 @@ export default function Work() {
     <section id="work" className="px-5 pt-20 md:px-24 md:pt-24">
       <Reveal>
         <div className="mb-9 flex items-baseline justify-between">
-          <SectionHeading index="01">Selected work</SectionHeading>
+          <SectionHeading index="01">{ui.work.heading}</SectionHeading>
           <span className="text-[13px] text-[rgba(233,233,237,0.4)]">
-            {projects.length} projects · 2023—2026
+            {ui.work.count.replace('{n}', String(projects.length))}
           </span>
         </div>
       </Reveal>
 
       <div className="grid gap-9 lg:grid-cols-2 lg:gap-7">
         {featured.map((p, i) => (
-          <Card key={p.slug} p={p} large delay={i * 0.07} />
+          <Card key={p.slug} p={p} ui={ui} large delay={i * 0.07} />
         ))}
       </div>
 
       <div className="mt-9 grid gap-9 md:mt-13 md:grid-cols-2 md:gap-7">
         {rest.map((p, i) => (
-          <Card key={p.slug} p={p} delay={i * 0.07} />
+          <Card key={p.slug} p={p} ui={ui} delay={i * 0.07} />
         ))}
       </div>
     </section>
