@@ -28,14 +28,14 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "lynx",
-    name: "Lynx",
-    year: "2024",
+    slug: "liquid-glass-cli",
+    name: "Liquid Glass CLI",
+    year: "2026",
     summary:
-      "A platform for building online business cards. Users fully customise their own card — photo, phone numbers, social links — and share it with anyone as a public link.",
-    short: "Online business-card platform",
-    tags: ["Next.js App Router", "TypeScript", "React Query", "GSAP"],
-    image: "/work/Lynx.webp",
+      "A React take on Apple’s iOS 26 Liquid Glass — real refraction, chromatic dispersion, and specular light on the web. Added shadcn style through a CLI, with a Figma plugin that turns glass designs into components.",
+    short: "Liquid Glass component & CLI",
+    tags: ["Nextj.js App Router", "TypeScript", "Tailwind CSS", "Node.js CLI", "Figma Plugin"],
+    image: "/work/Liquid-glass-cli.webp",
     featured: true,
   },
   {
@@ -69,6 +69,17 @@ export const projects: Project[] = [
     short: "Agency showcase",
     tags: ["Next.js App Router", "TypeScript", "Three.js"],
     image: "/work/Rabeck.webp",
+    featured: false,
+  },
+  {
+    slug: "lynx",
+    name: "Lynx",
+    year: "2024",
+    summary:
+      "A platform for building online business cards. Users fully customise their own card — photo, phone numbers, social links — and share it with anyone as a public link.",
+    short: "Online business-card platform",
+    tags: ["Next.js App Router", "TypeScript", "React Query", "GSAP"],
+    image: "/work/Lynx.webp",
     featured: false,
   },
 ];

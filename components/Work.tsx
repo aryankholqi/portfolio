@@ -21,11 +21,7 @@ function Tags({ tags }: { tags: string[] }) {
 function Card({ p, large, delay }: { p: Project; large?: boolean; delay: number }) {
   return (
     <Reveal as="article" delay={delay} className="flex flex-col gap-4">
-      <div
-        className={`relative overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-surface)] ${
-          large ? 'h-[200px] md:h-[340px]' : 'h-[180px] md:h-[196px]'
-        }`}
-      >
+      <div className="relative h-[200px] overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-surface)] md:h-[340px]">
         <Image src={p.image} alt={`${p.name} — screenshot`} fill sizes="(max-width: 768px) 100vw, 45vw" className="object-cover object-top" loading='eager'/>
       </div>
       <div className="flex items-baseline gap-4">
@@ -59,7 +55,7 @@ export default function Work() {
         ))}
       </div>
 
-      <div className="mt-9 grid gap-9 md:mt-13 md:grid-cols-3 md:gap-6">
+      <div className="mt-9 grid gap-9 md:mt-13 md:grid-cols-2 md:gap-7">
         {rest.map((p, i) => (
           <Card key={p.slug} p={p} delay={i * 0.07} />
         ))}
