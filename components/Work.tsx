@@ -126,7 +126,7 @@ export default function Work({ ui, projects }: { ui: UI; projects: Project[] }) 
         ))}
       </div>
 
-      <div className="mt-9 grid gap-9 md:mt-13 md:grid-cols-2 md:gap-7">
+      <div className="mt-9  md:mt-13 grid gap-9 lg:grid-cols-2 lg:gap-7">
         {rest.map((p, i) => (
           <Card key={p.slug} p={p} ui={ui} delay={i * 0.07} />
         ))}
