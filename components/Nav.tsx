@@ -60,7 +60,7 @@ export default function Nav({ ui, locale }: { ui: UI; locale: Locale }) {
   return (
     <div className="sticky top-0 z-50 px-4 pt-3 md:px-24 md:pt-5">
       <header
-        className={`relative flex items-center gap-4 overflow-hidden rounded-full ps-4 pe-2.5 transition-[padding,background-color] duration-300 md:gap-8 md:ps-6 md:pe-3.5 ${
+        className={`relative flex items-center gap-3 overflow-hidden rounded-full ps-4 pe-2.5 whitespace-nowrap transition-[padding,background-color] duration-300 md:gap-4 md:ps-5 md:pe-3 lg:gap-8 lg:ps-6 lg:pe-3.5 ${
           scrolled ? 'py-2' : 'py-2.5 md:py-3'
         }`}
         style={{
@@ -93,9 +93,9 @@ export default function Nav({ ui, locale }: { ui: UI; locale: Locale }) {
           style={{ background: 'linear-gradient(90deg, transparent, rgba(233,233,237,0.5), transparent)' }}
         />
 
-        <span className="relative text-[15px] tracking-[-0.02em]">{ui.name}</span>
+        <span className="relative shrink-0 text-[15px] tracking-[-0.02em]">{ui.name}</span>
 
-        <nav className="relative ms-auto hidden items-center gap-1 md:flex">
+        <nav className="relative ms-auto hidden items-center gap-0.5 md:flex lg:gap-1">
           {items.map((i) => {
             const on = active === i.href;
             return (
@@ -103,7 +103,7 @@ export default function Nav({ ui, locale }: { ui: UI; locale: Locale }) {
                 key={i.href}
                 href={i.href}
                 onClick={() => setActive(i.href)}
-                className={`relative rounded-full px-4 py-1.5 text-sm transition-colors ${
+                className={`relative rounded-full px-3 py-1.5 text-sm transition-colors lg:px-4 ${
                   on ? 'text-[var(--color-text)]' : 'text-[rgba(233,233,237,0.72)] hover:text-[var(--color-text)]'
                 }`}
               >
@@ -126,7 +126,7 @@ export default function Nav({ ui, locale }: { ui: UI; locale: Locale }) {
 
         {/* Each locale has its own root layout, so switching is a full page load. */}
         <Select value={locale} onValueChange={(v) => window.location.assign(pathOf(v as Locale))} dir={dir}>
-          <SelectTrigger size="sm" aria-label={ui.nav.language} className="relative ms-auto md:ms-0">
+          <SelectTrigger size="sm" aria-label={ui.nav.language} className="relative ms-auto shrink-0 md:ms-0">
             <SelectValue />
           </SelectTrigger>
           <SelectContent align="end">
@@ -139,7 +139,7 @@ export default function Nav({ ui, locale }: { ui: UI; locale: Locale }) {
         </Select>
 
         <span
-          className="relative flex items-center gap-2 rounded-full py-1.5 ps-3 pe-4 text-xs text-[rgba(233,233,237,0.72)]"
+          className="relative flex shrink-0 items-center gap-2 rounded-full py-1.5 ps-3 pe-4 text-xs text-[rgba(233,233,237,0.72)] md:hidden xl:flex"
           style={{
             background: 'rgba(22,24,38,0.28)',
             boxShadow: 'inset 0 1px 0 rgba(233,233,237,0.14)',
