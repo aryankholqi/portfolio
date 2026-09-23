@@ -3,7 +3,7 @@ import type { Project } from './en';
 export const projects: Project[] = [
   {
     slug: "abidarya",
-    name: "آبیدریا",
+    name: "Abidarya",
     year: "2026",
     summary:
       "سایت معرفی یک برند آرایشی و بهداشتی؛ کاتالوگ محصولات، مرور دسته‌بندی‌ها و صفحه‌های جزئیات، طراحی‌شده برای سبد محصولی که مدام بزرگ‌تر می‌شود.",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
   },
   {
     slug: "bank-test",
-    name: "بانک تست",
+    name: "Bank test",
     year: "2025",
     summary:
       "پلتفرم آزمون آزمایشی و تحلیل نتایج برای داوطلبان کنکور کارشناسی ارشد و دکتری.",
@@ -46,7 +46,7 @@ export const projects: Project[] = [
   },
   {
     slug: "tahla",
-    name: "طهلا",
+    name: "Tahla",
     year: "2025",
     summary:
       "فروشگاه آنلاین طلا و جواهر؛ کاتالوگ محصولات، مرور دسته‌بندی‌ها و صفحه‌های جزئیات محصول.",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
   },
   {
     slug: "rabeck",
-    name: "ربک",
+    name: "Rabeck",
     year: "2026",
     summary:
       "سایت معرفی تیم ربک؛ همه‌ی خدمات و نمونه‌کارهای انجام‌شده‌ی تیم در یک جا.",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   },
   {
     slug: "lynx",
-    name: "لینکس",
+    name: "Lynx",
     year: "2024",
     summary:
       "پلتفرمی برای ساخت کارت ویزیت آنلاین. کاربر کارتش را کامل شخصی‌سازی می‌کند — عکس، شماره تماس، شبکه‌های اجتماعی — و آن را با یک لینک عمومی با هر کسی به اشتراک می‌گذارد.",
