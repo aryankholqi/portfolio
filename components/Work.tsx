@@ -49,7 +49,7 @@ export default function Work() {
         </div>
       </Reveal>
 
-      <div className="grid gap-9 md:grid-cols-2 md:gap-7">
+      <div className="grid gap-9 lg:grid-cols-2 lg:gap-7">
         {featured.map((p, i) => (
           <Card key={p.slug} p={p} large delay={i * 0.07} />
         ))}
