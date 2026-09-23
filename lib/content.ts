@@ -7,6 +7,10 @@ export type Project = {
   tags: string[];
   image: string;
   featured: boolean;
+  /** Live site — makes the whole card a link. */
+  url?: string;
+  /** Source code, shown as a secondary link. */
+  repo?: string;
 };
 
 export const projects: Project[] = [
@@ -26,6 +30,7 @@ export const projects: Project[] = [
     ],
     image: "/work/Abidarya.webp",
     featured: true,
+    url: "https://abidarya.com",
   },
   {
     slug: "liquid-glass-cli",
@@ -37,6 +42,8 @@ export const projects: Project[] = [
     tags: ["Nextj.js App Router", "TypeScript", "Tailwind CSS", "Node.js CLI", "Figma Plugin"],
     image: "/work/Liquid-glass-cli.webp",
     featured: true,
+    url: "https://liquid-glass-showcase-red.vercel.app/",
+    repo: "https://github.com/aryankholqi/liquid-glass-cli",
   },
   {
     slug: "bank-test",
@@ -48,6 +55,7 @@ export const projects: Project[] = [
     tags: ["Next.js App Router", "TypeScript", "MathJax"],
     image: "/work/Banktest.webp",
     featured: false,
+    url: "https://test-cshub.ir",
   },
   {
     slug: "tahla",
@@ -59,6 +67,7 @@ export const projects: Project[] = [
     tags: ["Next.js App Router", "TypeScript", "Shadcn"],
     image: "/work/Tahla.webp",
     featured: false,
+    url: "https://tahla.vercel.app",
   },
   {
     slug: "rabeck",
@@ -70,6 +79,7 @@ export const projects: Project[] = [
     tags: ["Next.js App Router", "TypeScript", "Three.js"],
     image: "/work/Rabeck.webp",
     featured: false,
+    url: "https://rabeck.vercel.app",
   },
   {
     slug: "lynx",
@@ -81,6 +91,7 @@ export const projects: Project[] = [
     tags: ["Next.js App Router", "TypeScript", "React Query", "GSAP"],
     image: "/work/Lynx.webp",
     featured: false,
+    url: "https://lynx-psi.vercel.app",
   },
 ];
 
